@@ -1,2 +1,32 @@
 // Import page-specific CSS files here.
 @import "home";
+
+#banner {
+  background-position: 50% 50%;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.3)), asset-url("nav-bar-cocktail.jpg");
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  h1 {
+    color: white;
+  }
+}
+
+.container {
+  margin-top: 30px;
+}
+
+.cards h2{
+  border: 0.5px solid grey;
+  padding: 20px;
+
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+}
