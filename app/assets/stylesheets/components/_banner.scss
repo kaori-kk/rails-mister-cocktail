@@ -1,0 +1,18 @@
+#banner {
+  background-position: 50% 50%;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.3)), asset-url("nav-bar-cocktail.jpg");
+  height: 500px;
+  width: 100%;
+
+  h1 {
+    color: white;
+  }
+}
+
+#banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

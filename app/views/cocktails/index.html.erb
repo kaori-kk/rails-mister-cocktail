@@ -1,16 +1,39 @@
 <div id="banner">
-  <%#= image_tag "nav-bar-cocktail.jpg", alt: "cocktail", height: 600, crop: :fill  %>
   <h1>Find your Cocktails</h1>
+  <%= link_to "Create cocktails", new_cocktail_path %>
 </div>
 
 <div class="container">
   <div class="cards">
     <% @cocktails.each do |cocktail| %>
-    <h2><%= link_to cocktail.name, cocktail_path(cocktail)%></h2>
+    <div class="cocktails-card" style='background-image: url(
+      <% if cocktail.photo.attached? %>
+      <%= cl_image_path cocktail.photo.key, height: 400, width: 400, crop: :fill %>
+      <% else %>
+      <%= asset_url('cocktail.jpg') %>
+      <% end %>
+      );'>
+  <h2><%= link_to cocktail.name, cocktail_path(cocktail)%></h2>
+    </div>
     <% end %>
 
   </div>
 </div>
+<!-- background-image: url(
+<img src="/assets/cocktail-993793677892debfb7d945a9e11e52ad96a406759679295330f8ebce742296a0.jpg" />
+); -->
 
 
-<%= link_to "Create cocktails", new_cocktail_path %>
+<!-- <div class="cards">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    Breakfast
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
+    Lunch
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+    Dinner
+  </div>
+</div> -->

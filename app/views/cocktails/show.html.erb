@@ -1,22 +1,39 @@
-<h1><%= @cocktail.name %></h1>
-<% @cocktail.doses.each do |dose| %>
-<p><%= dose.description %> of <%= dose.ingredient.name %>
- <%= link_to "delete", dose_path(dose),
-method: :delete,
-data: { confirm: "Delete this ingredient?" } %></p>
+<div class="cocktail-container">
+  <div class="cocktail-info">
+    <div class="cocktail-details">
+      <h1><%= @cocktail.name %></h1>
+      <% @cocktail.doses.each do |dose| %>
+        <p><%= dose.description %> of <%= dose.ingredient.name %>
+        <%= link_to "delete", dose_path(dose), class: "btn btn-outline-dark btn-sm",
+        method: :delete,
+        data: { confirm: "Delete this ingredient?" } %></p>
 
-<% end %>
+      <% end %>
+    </div>
 
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-<%= f.association :ingredient %>
-<%= f.input :description %>
-<%= f.submit %>
+    <div class="form-box">
+       <%= simple_form_for [@cocktail, @dose] do |f| %>
+       <%= f.association :ingredient %>
+       <%= f.input :description %>
+       <%= f.submit class: "btn btn-outline-dark"%>
+       <% end %>
+    </div>
 
+  </div>
 
-<% end %>
+  <div class="cocktail-card" style='background-image: url(
+    <% if @cocktail.photo.attached?%>
+    <%= cl_image_path(@cocktail.photo.key, width: 300, height: 400, crop: :fill) %>
+    <% else %>
+    <%= asset_url('cocktail.jpg') %>
+    <% end %>
+    )'>
+  </div>
+</div>
 
- <%= link_to "Delete cocktail", cocktail_path(@cocktail),
-method: :delete,
-data: { confirm: "Delete this cocktail?" } %>
-<%= link_to "Back to cocktails", cocktails_path %>
-
+<div class="link">
+   <%= link_to "Delete cocktail", cocktail_path(@cocktail), class: "btn btn-dark",
+   method: :delete,
+   data: { confirm: "Delete this cocktail?" } %>
+   <%= link_to "Back to cocktails",  cocktails_path, class: "btn btn-dark"%>
+</div>

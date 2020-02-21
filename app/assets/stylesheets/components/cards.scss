@@ -1,0 +1,12 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.cocktails-card a {
+  color: white;
+  font-size: 25px;
+  margin-right: 10px;
+}
+
