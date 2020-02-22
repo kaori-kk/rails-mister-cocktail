@@ -8,6 +8,19 @@
   h1 {
     color: white;
   }
+
+  a {
+    background-color: white;
+    opacity: 0.8;
+    padding: 15px;
+    margin-top: 10px;
+    color: black;
+  }
+}
+
+#banner a:hover {
+  text-decoration: none;
+  opacity: 1.0;
 }
 
 #banner {

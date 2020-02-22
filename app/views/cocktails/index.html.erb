@@ -6,7 +6,7 @@
 <div class="container">
   <div class="cards">
     <% @cocktails.each do |cocktail| %>
-    <div class="cocktails-card" style='background-image: url(
+    <div class="cocktails-card" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)) ,url(
       <% if cocktail.photo.attached? %>
       <%= cl_image_path cocktail.photo.key, height: 400, width: 400, crop: :fill %>
       <% else %>
